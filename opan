@@ -1,0 +1,81 @@
+#!/bin/bash
+#===============================================================================
+# opev: open any-type file on Linux system.
+#
+#     Author: Tche LIU        Email: seistche@gmail.com
+#     Copyright (C) Tche LIU, 2017. All Rights Reserved.
+#===============================================================================
+
+# file-open tool defination.
+explorer=xdg-open
+editor=vim
+ncdump=ncdump
+mdview=typora
+
+# function to print help information.
+function print_help_info() {
+  printf '\nUsage:  opav [-h] | [ file [options] ]\n'
+  printf '  [-h     ]: print this help information.\n'
+  printf '  [file   ]: name of the file to open.\n'
+  printf '  [options]: options to pass to the invoked file-open tool.\n\n'
+  if [ $1 == 0 ]; then
+    exit 0
+  else
+    exit 1
+  fi
+}
+
+#====================== handle with command line arguments =====================
+# if want to print help info:
+if [ $1 == '-h' -o $1 == '--help' ]; then
+  print_help_info 0
+fi
+
+# if no argument:
+if [ "$*" == '' ]; then
+  $explorer ./
+fi
+
+# get file type:
+if [ -d $1 ]; then
+  tool=$explorer
+elif [ -f $1 ]; then
+  suf=${1##*.}
+  case $suf in
+    'txt')
+      tool=$editor ;;
+    'c' | 'cpp')
+      tool=$editor ;;
+    'f' | 'for' | 'f90' | 'F' | 'FOR' | 'F90')
+      tool=$editor ;;
+    'm')
+      tool=$editor ;;
+    'sh' | 'bat')
+      tool=$editor ;;
+    'md')
+      tool=$mdview ;;
+    'nc')
+      tool=$ncdump ;;
+    *)
+      printf "Error in $0:\n"
+      printf "  $1: I do know this file-type.\n\n"
+      exit 1
+   esac
+else
+  printf "Error in $0:\n"
+  printf "  $1: No such file or directory.\n\n"
+  exit 1
+fi
+
+# pass other arguments:
+ops="${@:2}"
+
+# test file readability:
+if [ ! -r $1 ]; then
+  printf "Error in $0:\n"
+  printf "  $1: Not readable for me.\n\n"
+  exit 1
+else
+  $tool $ops $1
+fi
+
