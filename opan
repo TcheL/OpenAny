@@ -26,14 +26,15 @@ function print_help_info() {
 }
 
 #====================== handle with command line arguments =====================
+# if no argument:
+if [ "$*" == '' ]; then
+  $explorer `pwd`
+  exit 0
+fi
+
 # if want to print help info:
 if [ $1 == '-h' -o $1 == '--help' ]; then
   print_help_info 0
-fi
-
-# if no argument:
-if [ "$*" == '' ]; then
-  $explorer ./
 fi
 
 # get file type:
