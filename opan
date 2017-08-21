@@ -1,6 +1,6 @@
 #!/bin/bash
 #===============================================================================
-# opev: open any-type file on Linux system.
+# opan: open any-type file on Linux system.
 #
 #     Author: Tche LIU        Email: seistche@gmail.com
 #     Copyright (C) Tche LIU, 2017. All Rights Reserved.
@@ -14,7 +14,7 @@ mdview=typora
 
 # function to print help information.
 function print_help_info() {
-  printf '\nUsage:  opav [-h] | [ file [options] ]\n'
+  printf '\nUsage:  opan [-h] | [ file [options] ]\n'
   printf '  [-h     ]: print this help information.\n'
   printf '  [file   ]: name of the file to open.\n'
   printf '  [options]: options to pass to the invoked file-open tool.\n\n'
