@@ -11,13 +11,16 @@ explorer=xdg-open
 editor=vim
 ncdump=ncdump
 mdview=typora
+pdfview=evince
+picview=eog
+tartool=tar
 
 # function to print help information.
 function print_help_info() {
   printf '\nUsage:  opan [-h] | [ file [options] ]\n'
   printf '  [-h     ]: print this help information.\n'
   printf '  [file   ]: name of the file to open.\n'
-  printf '  [options]: options to pass to the invoked file-open tool.\n\n'
+  printf '  [options]: options to pass to the invoked file-open tool.\n'
   if [ $1 == 0 ]; then
     exit 0
   else
@@ -43,28 +46,34 @@ if [ -d $1 ]; then
 elif [ -f $1 ]; then
   suf=${1##*.}
   case $suf in
-    'txt')
+    'txt' | 'log' | 'conf' | 'dat')
       tool=$editor ;;
     'c' | 'cpp')
       tool=$editor ;;
     'f' | 'for' | 'f90' | 'F' | 'FOR' | 'F90')
       tool=$editor ;;
-    'm')
+    'm' | 'py')
       tool=$editor ;;
     'sh' | 'bat')
       tool=$editor ;;
+    'pdf' | 'eps' | 'ps')
+      tool=$pdfview ;;
+    'png' | 'jpg')
+      tool=$picview ;;
+    'tar' | 'tgz' | 'gz' | 'bz2')
+      tool=$tartool ;;
     'md')
       tool=$mdview ;;
     'nc')
       tool=$ncdump ;;
     *)
       printf "Error in $0:\n"
-      printf "  $1: I do know this file-type.\n\n"
+      printf "  $1: I do know this file-type.\n"
       exit 1
    esac
 else
   printf "Error in $0:\n"
-  printf "  $1: No such file or directory.\n\n"
+  printf "  $1: No such file or directory.\n"
   exit 1
 fi
 
@@ -74,9 +83,10 @@ ops="${@:2}"
 # test file readability:
 if [ ! -r $1 ]; then
   printf "Error in $0:\n"
-  printf "  $1: Not readable for me.\n\n"
+  printf "  $1: Not readable for me.\n"
   exit 1
 else
+  printf ">> $tool $ops $1\n"
   $tool $ops $1
 fi
 
