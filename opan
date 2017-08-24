@@ -1,12 +1,12 @@
 #!/bin/bash
 #===============================================================================
-# opan: open any-type file on Linux system.
+# opan: open an any-type file on Linux system.
 #
 #     Author: Tche LIU        Email: seistche@gmail.com
 #     Copyright (C) Tche LIU, 2017. All Rights Reserved.
 #===============================================================================
 
-# file-open tool defination.
+# file-open tools defination.
 explorer=xdg-open
 editor=vim
 ncdump=ncdump
@@ -32,6 +32,7 @@ function print_help_info() {
 # if no argument:
 if [ "$*" == '' ]; then
   $explorer `pwd`
+  printf ">> $explorer ./\n"
   exit 0
 fi
 
