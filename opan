@@ -57,6 +57,8 @@ elif [ -f $1 ]; then
       tool=$editor ;;
     'sh' | 'bat')
       tool=$editor ;;
+    'tex')
+      tool=$editor ;;
     'pdf' | 'eps' | 'ps')
       tool=$pdfview ;;
     'png' | 'jpg')
