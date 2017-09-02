@@ -70,12 +70,12 @@ elif [ -f $1 ]; then
     'nc')
       tool=$ncdump ;;
     *)
-      printf "Error in $0:\n"
+      printf "Error at `pwd`:\n"
       printf "  $1: I do know this file-type.\n"
       exit 1
    esac
 else
-  printf "Error in $0:\n"
+  printf "Error at `pwd`:\n"
   printf "  $1: No such file or directory.\n"
   exit 1
 fi
@@ -85,7 +85,7 @@ ops="${@:2}"
 
 # test file readability:
 if [ ! -r $1 ]; then
-  printf "Error in $0:\n"
+  printf "Error at `pwd`:\n"
   printf "  $1: Not readable for me.\n"
   exit 1
 else
