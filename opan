@@ -61,7 +61,7 @@ elif [ -f $1 ]; then
       tool=$editor ;;
     'pdf' | 'eps' | 'ps')
       tool=$pdfview ;;
-    'png' | 'jpg')
+    'png' | 'jpg' | 'gif')
       tool=$picview ;;
     'tar' | 'tgz' | 'gz' | 'bz2')
       tool=$tartool ;;
@@ -70,14 +70,18 @@ elif [ -f $1 ]; then
     'nc')
       tool=$ncdump ;;
     *)
-      printf "Error at `pwd`:\n"
-      printf "  $1: I do know this file-type.\n"
-      exit 1
+      if [ $suf == $1 ]; then
+        tool=$editor 
+      else
+        printf "Error at `pwd`:\n"
+        printf "  $suf: I do know this file-type.\n"
+        exit 1
+     fi
    esac
 else
   printf "Error at `pwd`:\n"
   printf "  $1: No such file or directory.\n"
-  exit 1
+  exit 2
 fi
 
 # pass other arguments:
@@ -87,7 +91,7 @@ ops="${@:2}"
 if [ ! -r $1 ]; then
   printf "Error at `pwd`:\n"
   printf "  $1: Not readable for me.\n"
-  exit 1
+  exit 3
 else
   printf ">> $tool $ops $1\n"
   $tool $ops $1
