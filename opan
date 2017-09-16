@@ -37,14 +37,14 @@ if [ "$*" == '' ]; then
 fi
 
 # if want to print help info:
-if [ $1 == '-h' -o $1 == '--help' ]; then
+if [ "$1" == '-h' -o "$1" == '--help' ]; then
   print_help_info 0
 fi
 
 # get file type:
-if [ -d $1 ]; then
+if [ -d "$1" ]; then
   tool=$explorer
-elif [ -f $1 ]; then
+elif [ -f "$1" ]; then
   suf=${1##*.}
   case $suf in
     'txt' | 'log' | 'conf' | 'dat' | 'inc')
@@ -70,7 +70,7 @@ elif [ -f $1 ]; then
     'nc')
       tool=$ncdump ;;
     *)
-      if [ $suf == $1 ]; then
+      if [ "$suf" == "$1" ]; then
         tool=$editor 
       else
         printf "Error at `pwd`:\n"
@@ -88,12 +88,12 @@ fi
 ops="${@:2}"
 
 # test file readability:
-if [ ! -r $1 ]; then
+if [ ! -r "$1" ]; then
   printf "Error at `pwd`:\n"
   printf "  $1: Not readable for me.\n"
   exit 3
 else
   printf ">> $tool $ops $1\n"
-  $tool $ops $1
+  $tool $ops "$1"
 fi
 
