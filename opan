@@ -20,7 +20,7 @@ function print_help_info() {
   printf '\nUsage:  opan [-h] | [ file [options] ]\n'
   printf '  [-h     ]: print this help information.\n'
   printf '  [file   ]: name of the file to open.\n'
-  printf '  [options]: options to pass to the invoked file-open tool.\n'
+  printf '  [options]: options to pass to the invoked file-open tool.\n\n'
   if [ $1 == 0 ]; then
     exit 0
   else
@@ -47,7 +47,7 @@ if [ -d $1 ]; then
 elif [ -f $1 ]; then
   suf=${1##*.}
   case $suf in
-    'txt' | 'log' | 'conf' | 'dat')
+    'txt' | 'log' | 'conf' | 'dat' | 'inc')
       tool=$editor ;;
     'c' | 'cpp')
       tool=$editor ;;
