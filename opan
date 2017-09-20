@@ -49,7 +49,7 @@ elif [ -f "$1" ]; then
   case $suf in
     'txt' | 'log' | 'conf' | 'dat' | 'inc')
       tool=$editor ;;
-    'c' | 'cpp')
+    'c' | 'cpp' | 'h')
       tool=$editor ;;
     'f' | 'for' | 'f90' | 'F' | 'FOR' | 'F90')
       tool=$editor ;;
