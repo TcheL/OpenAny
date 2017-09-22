@@ -45,8 +45,9 @@ fi
 if [ -d "$1" ]; then
   tool=$explorer
 elif [ -f "$1" ]; then
-  suf=${1##*.}
-  case $suf in
+  pref=${1%.*}
+  suff=${1##*.}
+  case $suff in
     'txt' | 'log' | 'conf' | 'dat' | 'inc')
       tool=$editor ;;
     'c' | 'cpp' | 'h')
@@ -70,11 +71,13 @@ elif [ -f "$1" ]; then
     'nc')
       tool=$ncdump ;;
     *)
-      if [ "$suf" == "$1" ]; then
+      if [ "$suff" == "$1" ]; then
+        tool=$editor 
+      elif [ -z "$pref" ]; then
         tool=$editor 
       else
         printf "Error at `pwd`:\n"
-        printf "  $suf: I do know this file-type.\n"
+        printf "  $suff: I do know this file-type.\n"
         exit 1
      fi
    esac
