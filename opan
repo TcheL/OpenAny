@@ -45,8 +45,9 @@ fi
 if [ -d "$1" ]; then
   tool=$explorer
 elif [ -f "$1" ]; then
-  pref=${1%.*}
-  suff=${1##*.}
+  file=${1##*/}
+  pref=${file%.*}
+  suff=${file##*.}
   case $suff in
     'txt' | 'log' | 'conf' | 'dat' | 'inc')
       tool=$editor ;;
@@ -71,9 +72,11 @@ elif [ -f "$1" ]; then
     'nc')
       tool=$ncdump ;;
     *)
-      if [ "$suff" == "$1" ]; then
+      if [ "$suff" == "$file" ]; then
+        # if no dot in the filename:
         tool=$editor 
       elif [ -z "$pref" ]; then
+        # for hidden files:
         tool=$editor 
       else
         printf "Error at `pwd`:\n"
