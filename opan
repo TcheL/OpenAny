@@ -61,6 +61,8 @@ elif [ -f "$1" ]; then
       tool=$editor ;;
     'tex')
       tool=$editor ;;
+    'pbs')
+      tool=$editor ;;
     'pdf' | 'eps' | 'ps')
       tool=$pdfview ;;
     'png' | 'jpg' | 'gif')
