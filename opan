@@ -49,7 +49,7 @@ elif [ -f "$1" ]; then
   pref=${file%.*}
   suff=${file##*.}
   case $suff in
-    'txt' | 'log' | 'conf' | 'dat' | 'inc')
+    'txt' | 'log' | 'conf' | 'dat' | 'inc' | 'cpt')
       tool=$editor ;;
     'c' | 'cpp' | 'h')
       tool=$editor ;;
@@ -65,7 +65,7 @@ elif [ -f "$1" ]; then
       tool=$editor ;;
     'pdf' | 'eps' | 'ps')
       tool=$pdfview ;;
-    'png' | 'jpg' | 'gif')
+    'png' | 'jpg' | 'gif' | 'tif')
       tool=$picview ;;
     'tar' | 'tgz' | 'gz' | 'bz2')
       tool=$tartool ;;
