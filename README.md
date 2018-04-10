@@ -7,4 +7,4 @@ A bash script used to open a type-arbitrary file on Linux.
 ## Author
 Tche LIU, <seistche@gmail.com>, USTC
 
-![OpenAny](../master/OpAn.png)
+![OpenAny](./OpAn.png)
