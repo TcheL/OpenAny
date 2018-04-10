@@ -6,3 +6,5 @@ A bash script used to open a type-arbitrary file on Linux.
 
 ## Author
 Tche LIU, <seistche@gmail.com>, USTC
+
+![OpenAny](https://github.com/TcheL/OpenAny/blob/master/OpAn.png)
