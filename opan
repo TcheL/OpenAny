@@ -51,6 +51,8 @@ elif [ -f "$1" ]; then
       tool=$editor ;;
     'f' | 'for' | 'f90' | 'F' | 'FOR' | 'F90')
       tool=$editor ;;
+    'cu')
+      tool=$editor ;;
     'm' | 'py')
       tool=$editor ;;
     'sh' | 'bat')
