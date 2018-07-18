@@ -61,6 +61,12 @@ elif [ -f "$1" ]; then
       tool=$editor ;;
     'pbs')
       tool=$editor ;;
+    'json')
+      tool=$editor ;;
+    'yml')
+      tool=$editor ;;
+    'html')
+      tool=$editor ;;
     'pdf' | 'eps' | 'ps')
       tool=$pdfview ;;
     'png' | 'jpg' | 'gif' | 'tif')
