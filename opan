@@ -108,7 +108,7 @@ if [ ! -r "$1" ]; then
   printf "  $1: Not readable for me.\n"
   exit 2
 else
-  if [ $ops -a $supp ]; then
+  if [ "$ops" -a $supp ]; then
     printf ">> $tool $ops $1\n"
     $tool $ops "$1"
   else
