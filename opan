@@ -7,7 +7,7 @@
 #===============================================================================
 
 # file-open tools defination.
-deftool=xdg-open
+explorer=xdg-open
 editor=vim
 ncdump=ncdump
 mdview=typora
@@ -27,8 +27,8 @@ function print_help_info() {
 #====================== handle with command line arguments =====================
 # if no argument:
 if [ "$*" == '' ]; then
-  $deftool `pwd`
-  printf ">> $deftool ./\n"
+  $explorer `pwd`
+  printf ">> $explorer ./\n"
   exit 0
 fi
 
@@ -38,9 +38,8 @@ if [ "$1" == '-h' -o "$1" == '--help' ]; then
 fi
 
 # get file type:
-supp=on
 if [ -d "$1" ]; then
-  tool=$deftool
+  tool=$explorer
 elif [ -f "$1" ]; then
   file=${1##*/}
   pref=${file%.*}
@@ -86,17 +85,15 @@ elif [ -f "$1" ]; then
         # for hidden files:
         tool=$editor 
       else
-        printf "Warning at `pwd`:\n"
+        printf "Error at `pwd`:\n"
         printf "  $suff: I do know this file-type.\n"
-        printf "  I will invoke the default tool.\n"
-        supp=
-        tool=$deftool
+        exit 1
      fi
    esac
 else
   printf "Error at `pwd`:\n"
   printf "  $1: No such file or directory.\n"
-  exit 1
+  exit 2
 fi
 
 # pass other arguments:
@@ -106,9 +103,9 @@ ops="${@:2}"
 if [ ! -r "$1" ]; then
   printf "Error at `pwd`:\n"
   printf "  $1: Not readable for me.\n"
-  exit 2
+  exit 3
 else
-  if [ "$ops" -a $supp ]; then
+  if [ "$ops" ]; then
     printf ">> $tool $ops $1\n"
     $tool $ops "$1"
   else
