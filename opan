@@ -57,9 +57,9 @@ elif [ -f "$1" ]; then
       tool=$editor ;;
     'sh' | 'bat')
       tool=$editor ;;
-    'tex')
+    'tex' | 'sty')
       tool=$editor ;;
-    'pbs')
+    'pbs' | 'lsf')
       tool=$editor ;;
     'json')
       tool=$editor ;;

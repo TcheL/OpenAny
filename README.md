@@ -23,14 +23,14 @@ So far, __opan__ supports:
 
 | file extension                       | invoked tool |
 | ------------------------------------ | ------------ |
-| .txt, .log, .conf, .dat, .cpt        | vim          |
+| .txt, .log, .conf, .dat, .inc, .cpt  | vim          |
 | .c, .cpp, .h                         | vim          |
-| .f, .for, .f90, .F, .FOR, .F90, .inc | vim          |
+| .f, .for, .f90, .F, .FOR, .F90       | vim          |
 | .cu                                  | vim          |
 | .m, .py                              | vim          |
 | .sh, .bat                            | vim          |
-| .tex                                 | vim          |
-| .pbs                                 | vim          |
+| .tex, .sty                           | vim          |
+| .pbs, .lsf                           | vim          |
 | .json                                | vim          |
 | .yml                                 | vim          |
 | .html                                | vim          |
