@@ -21,24 +21,24 @@ If you want to open any file, just run `$ opan filename`, __opan__ will automati
 
 So far, __opan__ supports:
 
-| file extension                       | invoked tool |
-| ------------------------------------ | ------------ |
-| .txt, .log, .conf, .dat, .inc, .cpt  | vim          |
-| .c, .cpp, .h                         | vim          |
-| .f, .for, .f90, .F, .FOR, .F90       | vim          |
-| .cu                                  | vim          |
-| .m, .py                              | vim          |
-| .sh, .bat                            | vim          |
-| .tex, .sty                           | vim          |
-| .pbs, .lsf                           | vim          |
-| .json                                | vim          |
-| .yml                                 | vim          |
-| .html                                | vim          |
-| .pdf, .eps, .ps                      | evince       |
-| .png, .jpg, .gif, .tif               | eog          |
-| .tar, .tgz, .gz, .bz2                | tar          |
-| .md                                  | typora       |
-| .nc                                  | ncdump       |
+| file extension                      | invoked tool |
+| ----------------------------------- | ------------ |
+| .txt, .log, .conf, .dat, .inc, .cpt | vim          |
+| .c, .cpp, .h                        | vim          |
+| .f, .for, .f90, .F, .FOR, .F90      | vim          |
+| .cu                                 | vim          |
+| .m, .py                             | vim          |
+| .sh, .bat                           | vim          |
+| .tex, .sty, .bib                    | vim          |
+| .pbs, .lsf                          | vim          |
+| .json                               | vim          |
+| .yml                                | vim          |
+| .html                               | vim          |
+| .pdf, .eps, .ps                     | evince       |
+| .png, .jpg, .gif, .tif              | eog          |
+| .tar, .tgz, .gz, .bz2               | tar          |
+| .md                                 | typora       |
+| .nc                                 | ncdump       |
 
 ## Author
 
