@@ -75,7 +75,7 @@ elif [ -f "$1" ]; then
       tool=$tartool ;;
     'md')
       tool=$mdview ;;
-    'nc')
+    'nc' | 'grd' )
       tool=$ncdump ;;
     *)
       if [ "$suff" == "$file" ]; then
