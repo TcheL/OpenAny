@@ -47,9 +47,9 @@ elif [ -f "$1" ]; then
   case $suff in
     'txt' | 'log' | 'conf' | 'dat' | 'inc' | 'cpt')
       tool=$editor ;;
-    'c' | 'cpp' | 'h')
+    'c' | 'cpp' | 'cc' | 'h' | 'hpp' )
       tool=$editor ;;
-    'f' | 'for' | 'f90' | 'F' | 'FOR' | 'F90')
+    'f' | 'for' | 'f90' | 'F' | 'FOR' | 'F90' | 'nml' )
       tool=$editor ;;
     'cu')
       tool=$editor ;;
