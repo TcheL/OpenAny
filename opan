@@ -45,39 +45,41 @@ elif [ -f "$1" ]; then
   pref=${file%.*}
   suff=${file##*.}
   case $suff in
-    'txt' | 'log' | 'conf' | 'dat' | 'inc' | 'cpt')
+    'txt' | 'log' | 'conf' | 'dat' | 'inc' | 'cpt' )
       tool=$editor ;;
     'c' | 'cpp' | 'cc' | 'h' | 'hpp' )
       tool=$editor ;;
     'f' | 'for' | 'f90' | 'F' | 'FOR' | 'F90' | 'nml' )
       tool=$editor ;;
-    'cu')
+    'cu' )
       tool=$editor ;;
-    'm' | 'py')
+    'm' )
       tool=$editor ;;
-    'sh' | 'bat')
+    'py' | 'pyf' )
       tool=$editor ;;
-    'tex' | 'sty' | 'bib')
+    'sh' | 'bat' )
       tool=$editor ;;
-    'pbs' | 'lsf')
+    'tex' | 'sty' | 'bib' )
       tool=$editor ;;
-    'json')
+    'pbs' | 'lsf' )
       tool=$editor ;;
-    'yml')
+    'json' )
       tool=$editor ;;
-    'html')
+    'yml' )
       tool=$editor ;;
-    'pdf' | 'eps' | 'ps')
+    'html' )
+      tool=$editor ;;
+    'pdf' | 'eps' | 'ps' )
       tool=$pdfview ;;
-    'png' | 'jpg' | 'gif' | 'tif')
+    'png' | 'jpg' | 'gif' | 'tif' )
       tool=$picview ;;
-    'tar' | 'tgz' | 'gz' | 'bz2')
+    'tar' | 'tgz' | 'gz' | 'bz2' )
       tool=$tartool ;;
-    'md')
+    'md' )
       tool=$mdview ;;
     'nc' | 'grd' )
       tool=$ncdump ;;
-    *)
+    * )
       if [ "$suff" == "$file" ]; then
         # if no dot in the filename:
         tool=$editor 

@@ -27,7 +27,8 @@ So far, __opan__ supports:
 | .c, .cpp, .cc, .h, .hpp              | vim          |
 | .f, .for, .f90, .F, .FOR, .F90, .nml | vim          |
 | .cu                                  | vim          |
-| .m, .py                              | vim          |
+| .m                                   | vim          |
+| .py, .pyf                            | vim          |
 | .sh, .bat                            | vim          |
 | .tex, .sty, .bib                     | vim          |
 | .pbs, .lsf                           | vim          |
