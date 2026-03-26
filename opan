@@ -47,17 +47,17 @@ elif [ -f "$1" ]; then
   case $suff in
     'txt' | 'log' | 'conf' | 'dat' | 'inc' | 'cpt' )
       tool=$editor ;;
-    'c' | 'cpp' | 'cc' | 'h' | 'hpp' )
+    'c' | 'cpp' | 'cc' | 'h' | 'hpp' | 'hh' )
       tool=$editor ;;
     'f' | 'for' | 'f90' | 'F' | 'FOR' | 'F90' | 'nml' )
       tool=$editor ;;
-    'cu' )
+    'cu' | 'cuh' )
       tool=$editor ;;
     'm' )
       tool=$editor ;;
     'py' | 'pyf' )
       tool=$editor ;;
-    'sh' | 'bat' )
+    'sh' | 'bat' | 'ps1' )
       tool=$editor ;;
     'tex' | 'sty' | 'bib' )
       tool=$editor ;;
@@ -68,6 +68,8 @@ elif [ -f "$1" ]; then
     'yml' )
       tool=$editor ;;
     'html' )
+      tool=$editor ;;
+    'cmake' )
       tool=$editor ;;
     'pdf' | 'eps' | 'ps' )
       tool=$pdfview ;;
